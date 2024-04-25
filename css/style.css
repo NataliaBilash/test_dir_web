@@ -1,0 +1,43 @@
+body {
+    background-color: #9aa5b4;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+}
+
+.my_photo{
+    background: url(../image/96d6ac40b8f2ee6255accdd425596f0a.jpg) no-repeat center center;
+    background-size: 100%;
+    width: 300px;
+    height: 300px;
+    left: 65%; 
+    top: 10%;
+    position: absolute;  
+}
+
+.nav_logo{
+    background: url(../image/logo.jpg) no-repeat center center;
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+
+}
+.nav_bar {
+    font-size: 30px;
+    font-weight: bold;
+}
+.container {
+    margin-top: 30px;
+}
+
+.nav_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img_size {
+}
+.title_photo {
+    left: 68%; 
+    top: 45%;
+    position: absolute;  
+}
