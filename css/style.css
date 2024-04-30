@@ -34,10 +34,27 @@ body {
     align-items: center;
     justify-content: center;
 }
-.img_size {
-}
+
 .title_photo {
     left: 68%; 
     top: 45%;
     position: absolute;  
+}
+
+.button_js{
+    text-align: center;
+}
+
+#MyButton{
+    border: none;
+    width: 200px;
+    height: 50px;
+    background-color: #0d2741;
+    color: rgb(255, 255, 255);
+}
+
+#demo{
+    margin-top: 20px;
+    width: 25%;
+    
 }

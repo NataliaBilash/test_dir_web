@@ -7,13 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
-    <link rel="stylesheet" href="css/style.css">-
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header class="nav_bar">
       <h1 class="nav_text">Личная страница</h1>
     </header>
-    <main>
       <article>
         <div class="container">
           <section class="row">
@@ -29,7 +28,7 @@
                   <li><p>штук 5 различных бергамотовых купажей</p></li>
                 </ul>
               </nav>
-            </div>
+            </div>  
             <div class="col-8">
               <div class="row my_photo"></div>
               <div class="row"><p class="title_photo">HTML человека</p></div>
@@ -47,10 +46,47 @@
           </section>
         </div>
       </article>
-    </main>
-    <footer>
-      <p>конец</p>
-    </footer>
-    <!-- сюда можно подключить jquery <script src="scripts/app.js" defer></script> -->
+      <div class="container">
+        <div class="row">
+          <div class="button_js col-12">
+            <button id="MyButton">Click me</button>
+            <p id="demo"></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="hello">
+              Привет, <?php echo $_COOKIE['User']; ?>
+            </h1>
+          </div>
+          <div class="col-12">
+                <form method="POST" action="profile.php">
+                    <input class="form" type="text" name="title" placeholder="Заголовок поста">
+                    <textarea name="text" cols="30" rows="10" placeholder="Введите текст поста..."></textarea>
+                    <button type="submit" class="btn_red" name="post_submit">Сохранить пост</button>
+                </form>
+            </div>
+        </div>
+      </div>
+  <script type="text/javascript" src="/home/zeroff/Рабочий стол/web_test/test_dir_web/js/button.js"></script>
   </body>
 </html>
+
+<?php
+require_once('db.php');
+
+$link = mysqli_connect('127.0.0.1', 'root', '123', 'site_db');
+
+if (isset($_POST['post_submit'])) {
+  $title = $_POST['title'];
+  $main_text = $_POST['text'];
+
+  if (!$title || !$main_text) die ("Заполните все поля");
+
+  $sql = "INSERT INTO posts (title, main_text) VALUES ('$title', '$main_text')";
+
+  if (!mysqli_query($link, $sql)) die ("Не удалось добавить пост");
+}
+?>
